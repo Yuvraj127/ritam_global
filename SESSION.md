@@ -18,10 +18,11 @@
 * [x] **Tech Stack Selection:** User selected **Next.js + Custom CSS** for server-side rendering, SSG, and multi-page SEO capability.
 * [x] **Next.js App Router Initialization:** Created TypeScript Next.js structure in workspace root.
 * [x] **Product Data Engine:** Created `src/data/products.ts` with complete dataset covering all 25 standard fragrances, 7 colored agarbatti, 7 premium incense, 2 masala agarbatti, 7 dry dhoops, and cookware pricing matrix (₹50 to ₹250).
-* [x] **Design System & Styling:** Implemented HSL CSS design tokens in `src/app/globals.css` with Deep Navy (`#0b1a30`), Royal Gold (`#d4af37`), Cream (`#faf6f0`), glassmorphism, gold smoke animations, and Cinzel/Outfit typography.
+* [x] **Design System & Styling:** Overhauled HSL CSS design tokens in `src/app/globals.css` switching to a pristine **Light White & Yellowish-Golden Theme** (`#ffffff`, `#e5b810`, `#1e293b`). Enhanced glassmorphism for a premium, clean aesthetic.
+* [x] **Custom Animated Scrollbar:** Implemented a bespoke interactive `IncenseScrollbar` React component that hides the native scrollbar, visually represents a burning incense stick as the user scrolls, and dynamically emits upward-drifting smoke particles (which reverse when scrolling up).
 * [x] **UI Components:**
   - `Navbar.tsx`: Top info bar with GSTIN, Vadodara location, and 3 helpline phone numbers.
-  - `Hero.tsx`: Smoke particle visuals, official brand tagline, and CTAs.
+  - `Hero.tsx`: Official brand tagline and CTAs.
   - `FragranceFinder.tsx`: Interactive tabbed filter, search bar, scent profile filter, and modal quick views.
   - `CookwareShowcase.tsx`: Master price matrix and interactive bulk order price estimator (14cm to 36cm).
   - `WhyChooseUs.tsx`: Trust pillars and quality assurance grid.

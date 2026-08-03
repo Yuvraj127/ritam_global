@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import IncenseScrollbar from "@/components/IncenseScrollbar";
 
 export const metadata: Metadata = {
   title: "Ritam Global | Incense Sticks (Agarbatti), Dhoop & Frying Bowls Manufacturer",
@@ -20,7 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <IncenseScrollbar />
+        {children}
+      </body>
     </html>
   );
 }
