@@ -31,7 +31,6 @@
 ---
 
 ## 4. Next Session Action Plan
-1. **Develop Dhoop Page (`/dhoop`):** Create the catalog page for dry dhoop sticks and cones.
-2. **Develop Cookware Page (`/cookware`):** Build an interactive size-comparison layout for the Frying Bowls.
-3. **Develop Auxiliary Pages:** Complete the Wholesale (`/wholesale`) inquiry and About Us (`/about`) pages.
-4. **Final Polish:** Complete responsiveness checks and verify all links.
+1. **Local Review:** Run `npm run dev` to preview the fully constructed multi-page site and test interactivity on all catalogs.
+2. **Media Integration:** The user may provide custom photography or graphics to replace the temporary logo text and placeholder icons.
+3. **Deployment Prep:** Once final tweaks are made to text copy or images, the site is ready to be deployed to Vercel/Netlify.
