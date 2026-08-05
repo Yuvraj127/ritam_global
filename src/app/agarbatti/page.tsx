@@ -25,7 +25,7 @@ export default function AgarbattiCatalog() {
         </p>
 
         {/* Elegant Horizontal Accordion */}
-        <div style={{
+        <div className="agarbatti-accordion" style={{
           display: 'flex',
           height: '500px',
           width: '100%',
@@ -39,6 +39,7 @@ export default function AgarbattiCatalog() {
             return (
               <div
                 key={item.id}
+                className={isActive ? "active-strip" : ""}
                 onMouseEnter={() => setHoveredId(item.id)}
                 style={{
                   flex: isActive ? 5 : 1,

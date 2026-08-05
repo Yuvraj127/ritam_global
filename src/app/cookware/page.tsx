@@ -83,8 +83,8 @@ export default function CookwareCatalog() {
             }}>
               {/* Abstract size indicator circle */}
               <div style={{
-                width: `${Math.min(itemSizeToPixels(activeItem.size), 300)}px`,
-                height: `${Math.min(itemSizeToPixels(activeItem.size), 300)}px`,
+                width: `${Math.min(itemSizeToPixels(activeItem.size), 250)}px`,
+                height: `${Math.min(itemSizeToPixels(activeItem.size), 250)}px`,
                 borderRadius: '50%',
                 backgroundColor: 'rgba(207, 168, 95, 0.15)',
                 position: 'absolute',

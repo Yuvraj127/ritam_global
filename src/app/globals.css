@@ -148,3 +148,94 @@ main {
   animation: drift 8s infinite ease-in-out;
   pointer-events: none;
 }
+
+/* ========================================= */
+/* Responsive Media Queries                  */
+/* ========================================= */
+
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  padding: 0.5rem;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: var(--color-charcoal);
+  transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile Menu Container */
+.mobile-nav-container {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3rem 0;
+  }
+  
+  .container {
+    padding: 0 1.25rem;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  .mobile-nav-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--color-ivory);
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1.25rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(207, 168, 95, 0.2);
+    clip-path: inset(0 0 100% 0); /* Hidden by default */
+    transition: clip-path 0.4s ease-in-out;
+  }
+  
+  .mobile-nav-container.open {
+    clip-path: inset(0 0 0 0);
+  }
+  
+  /* Make category cards slightly shorter on mobile */
+  .category-card img {
+    height: 200px !important;
+  }
+  
+  /* Horizontal Accordion to Vertical */
+  .agarbatti-accordion {
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 600px;
+  }
+  
+  .agarbatti-accordion > div {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    width: 100% !important;
+  }
+  
+  .agarbatti-accordion > div:not(.active-strip) h3 {
+    transform: rotate(0) !important;
+    padding: 1rem 0;
+  }
+}
