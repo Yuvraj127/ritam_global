@@ -17,9 +17,15 @@ export default function Navbar() {
         justifyContent: 'space-between',
         padding: '1.25rem 2rem'
       }}>
-        {/* Elegant Text Logo */}
-        <Link href="/" style={{ textDecoration: 'none' }}>
+        {/* Image Logo */}
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+          <img 
+            src="/logo.png" 
+            alt="Ritam Global Logo" 
+            style={{ height: '60px', width: 'auto', objectFit: 'contain' }} 
+          />
           <span style={{
+            display: 'none',
             fontSize: '1.5rem',
             fontFamily: 'var(--font-cormorant)',
             color: 'var(--color-charcoal)',

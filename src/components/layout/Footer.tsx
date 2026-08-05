@@ -16,7 +16,13 @@ export default function Footer() {
       }}>
         {/* Brand */}
         <div>
+          <img 
+            src="/logo.png" 
+            alt="Ritam Global Logo" 
+            style={{ height: '80px', width: 'auto', marginBottom: '1.5rem', objectFit: 'contain' }} 
+          />
           <h3 style={{
+            display: 'none',
             fontFamily: 'var(--font-cormorant)',
             fontSize: '1.5rem',
             color: 'var(--color-gold)',
