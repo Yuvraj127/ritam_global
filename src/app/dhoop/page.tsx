@@ -108,22 +108,12 @@ export default function DhoopCatalog() {
         </div>
 
         {/* Product Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-          gap: '2.5rem'
-        }}>
-          {filteredProducts.map(product => {
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
+          {filteredProducts.map((product, index) => {
             const currentFormat = formats[product.id] || 'stick';
             
             return (
-              <div key={product.id} className="glass category-card" style={{
-                borderRadius: 'var(--radius-lg)',
-                overflow: 'hidden',
-                display: 'flex',
-                flexDirection: 'column',
-                border: '1px solid rgba(207, 168, 95, 0.15)'
-              }}>
+              <div key={product.id} className="glass animate-fade-up category-card" style={{ animationDelay: `${(index % 4) * 0.15}s`, borderRadius: 'var(--radius-lg)', overflow: 'hidden', display: 'flex', flexDirection: 'column', border: '1px solid rgba(207, 168, 95, 0.15)' }}>
                 <img 
                   src={currentFormat === 'stick' ? '/dhoop-stick.jpg' : '/dhoop-cone.jpg'} 
                   alt={`${product.name} ${currentFormat}`} 

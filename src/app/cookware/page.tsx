@@ -129,8 +129,9 @@ export default function CookwareCatalog() {
           gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
           gap: '2rem'
         }}>
-          {filteredProducts.map(product => (
-            <div key={product.id} className="glass" style={{
+          {filteredProducts.map((product, index) => (
+            <div key={product.id} className="glass animate-fade-up" style={{
+              animationDelay: `${(index % 5) * 0.15}s`,
               borderRadius: 'var(--radius-lg)',
               overflow: 'hidden',
               display: 'flex',

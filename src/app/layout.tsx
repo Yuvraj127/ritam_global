@@ -17,8 +17,14 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Ritam Global | Incense Sticks & Frying Bowls",
-  description: "Manufacturer & Supplier of Agarbatti, Dhoop, and Enamel Frying Bowls.",
+  title: "Ritam Global | Premium Incense & Cookware",
+  description: "Manufacturer & Supplier of high-quality Agarbatti, Dhoop sticks & cones, and traditional Enamel Frying Bowls in Vadodara, Gujarat.",
+  keywords: "Agarbatti, Dhoop, Incense Sticks, Enamel Cookware, Vagariya, Vadka, Bulk Incense, Wholesale Agarbatti, Ritam Global",
+  openGraph: {
+    title: "Ritam Global | Premium Incense & Cookware",
+    description: "Pure aromas and spiritual elegance for everyday rituals.",
+    type: "website",
+  }
 };
 
 import Navbar from "@/components/layout/Navbar";

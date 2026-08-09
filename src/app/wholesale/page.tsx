@@ -1,7 +1,11 @@
-"use client";
-
 import React from "react";
 import Button from "@/components/ui/Button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Wholesale & Bulk Orders | Ritam Global",
+  description: "Partner with Ritam Global for bulk supply of agarbatti, dhoop, and cookware. Special B2B pricing available.",
+};
 
 export default function WholesalePage() {
   return (
@@ -16,7 +20,7 @@ export default function WholesalePage() {
           </p>
         </div>
 
-        <div className="glass" style={{ padding: '3rem', borderRadius: 'var(--radius-lg)' }}>
+        <div className="glass animate-fade-up" style={{ animationDelay: '0.2s', padding: '3rem', borderRadius: 'var(--radius-lg)' }}>
           <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: 'var(--color-charcoal)' }}>Partner With Us</h2>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '2.5rem' }}>
             <li style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
