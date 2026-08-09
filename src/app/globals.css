@@ -62,6 +62,7 @@ main {
 
 .bg-ivory { background-color: var(--color-ivory); }
 .bg-cream { background-color: var(--color-cream); }
+.bg-charcoal { background-color: var(--color-charcoal); }
 
 /* Glassmorphism for Light Theme */
 .glass {
@@ -147,6 +148,26 @@ main {
   filter: blur(4px);
   animation: drift 8s infinite ease-in-out;
   pointer-events: none;
+}
+
+/* Luxury UI Animations */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  0% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-zoom-in {
+  animation: zoomIn 10s ease-out forwards;
 }
 
 /* ========================================= */
