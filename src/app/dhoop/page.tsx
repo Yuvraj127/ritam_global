@@ -70,7 +70,7 @@ export default function DhoopCatalog() {
                       ₹{(formats[selectedProduct.id] || 'stick') === 'stick' ? 80 : 100}
                     </div>
                   </div>
-                  <Button href="/wholesale" variant="primary">Bulk Inquiry</Button>
+                  <Button href={`https://wa.me/917600026495?text=${encodeURIComponent(`Hello Ritam Global, I am interested in a bulk inquiry for your Dry Dhoop: ${selectedProduct.name} (${(formats[selectedProduct.id] || 'stick') === 'stick' ? 'Sticks' : 'Cones'}).`)}`} variant="primary" target="_blank">Bulk Inquiry</Button>
                 </div>
               </div>
             </div>

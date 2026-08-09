@@ -100,7 +100,7 @@ export default function AgarbattiCatalog() {
                     <div style={{ fontSize: '0.9rem', color: 'var(--color-slate)' }}>Estimated Price</div>
                     <div style={{ fontSize: '1.8rem', color: 'var(--color-gold)', fontFamily: 'var(--font-cormorant)' }}>₹{selectedProduct.price}</div>
                   </div>
-                  <Button href="/wholesale" variant="primary">Bulk Inquiry</Button>
+                  <Button href={`https://wa.me/917600026495?text=${encodeURIComponent(`Hello Ritam Global, I am interested in a bulk inquiry for your Agarbatti: ${selectedProduct.name} (${selectedProduct.category}).`)}`} variant="primary" target="_blank">Bulk Inquiry</Button>
                 </div>
               </div>
             </div>
