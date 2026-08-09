@@ -1,8 +1,42 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
+
+// Hero Slides Data
+const heroSlides = [
+  {
+    id: 1,
+    img: '/promo-banner.jpg',
+    headline: 'Pure Aromas & <br /><span style="color: var(--color-gold)">Spiritual Elegance</span>',
+    subtext: 'Elevate your everyday rituals with our premium collection of handcrafted incense and cookware.',
+    primaryBtnText: 'Explore Catalog',
+    primaryBtnLink: '#collections',
+    secondaryBtnText: 'Wholesale Inquiry',
+    secondaryBtnLink: '/wholesale'
+  },
+  {
+    id: 2,
+    img: '/category-agarbatti.jpg',
+    headline: 'Discover the <br /><span style="color: var(--color-gold)">Perfect Scent</span>',
+    subtext: 'Explore our collection of 25+ premium standard and colored agarbatti fragrances.',
+    primaryBtnText: 'Shop Agarbatti',
+    primaryBtnLink: '/agarbatti',
+    secondaryBtnText: null,
+    secondaryBtnLink: null
+  },
+  {
+    id: 3,
+    img: '/category-cookware.jpg',
+    headline: 'Partner with <br /><span style="color: var(--color-gold)">Ritam Global</span>',
+    subtext: 'Special wholesale pricing and custom private labeling available for bulk B2B orders.',
+    primaryBtnText: 'Inquire Now',
+    primaryBtnLink: '/wholesale',
+    secondaryBtnText: null,
+    secondaryBtnLink: null
+  }
+];
 
 // Featured Products Data
 const featuredProducts = [
@@ -22,6 +56,15 @@ const featuredProducts = [
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<typeof featuredProducts[0] | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Auto-play Carousel Logic
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <>
@@ -70,7 +113,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* Upgraded Hero Section */}
+      {/* Upgraded Hero Carousel */}
       <section style={{
         width: '100%',
         minHeight: '80vh',
@@ -81,33 +124,69 @@ export default function Home() {
         justifyContent: 'center',
         overflow: 'hidden'
       }}>
-        {/* Background Image */}
-        <div className="animate-zoom-in" style={{
-          position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-          backgroundImage: 'url(/promo-banner.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: 0.8
-        }}></div>
+        {/* Background Images with Crossfade */}
+        {heroSlides.map((slide, index) => (
+          <div 
+            key={slide.id} 
+            className="animate-zoom-in"
+            style={{
+              position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+              backgroundImage: `url(${slide.img})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              opacity: currentSlide === index ? 0.8 : 0,
+              transition: 'opacity 1.5s ease-in-out',
+              zIndex: currentSlide === index ? 1 : 0
+            }}
+          ></div>
+        ))}
         
-        {/* Glassmorphic Overlay Box */}
+        {/* Glassmorphic Overlay Box with Content Transition */}
         <div className="glass animate-fade-up" style={{
           position: 'relative', zIndex: 10, maxWidth: '800px', margin: '0 2rem',
           padding: '4rem 3rem', textAlign: 'center', borderRadius: 'var(--radius-lg)',
           animationDelay: '0.2s',
           backgroundColor: 'rgba(250, 246, 240, 0.85)', backdropFilter: 'blur(10px)',
-          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+          transition: 'all 0.5s ease-in-out'
         }}>
-          <h1 style={{ fontSize: '4rem', color: 'var(--color-charcoal)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
-            Pure Aromas & <br /><span style={{ color: 'var(--color-gold)' }}>Spiritual Elegance</span>
-          </h1>
+          <h1 
+            style={{ fontSize: '4rem', color: 'var(--color-charcoal)', marginBottom: '1.5rem', lineHeight: 1.1 }}
+            dangerouslySetInnerHTML={{ __html: heroSlides[currentSlide].headline }}
+          ></h1>
           <p style={{ fontSize: '1.25rem', color: 'var(--color-slate)', marginBottom: '2.5rem', maxWidth: '600px', margin: '0 auto 2.5rem' }}>
-            Elevate your everyday rituals with our premium collection of handcrafted incense sticks, dry dhoop, and traditional enamel cookware.
+            {heroSlides[currentSlide].subtext}
           </p>
           <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
-            <Button href="#collections" variant="primary">Explore Catalog</Button>
-            <Button href="/wholesale" variant="outline">Wholesale Inquiry</Button>
+            <Button href={heroSlides[currentSlide].primaryBtnLink} variant="primary">
+              {heroSlides[currentSlide].primaryBtnText}
+            </Button>
+            {heroSlides[currentSlide].secondaryBtnText && (
+              <Button href={heroSlides[currentSlide].secondaryBtnLink!} variant="outline">
+                {heroSlides[currentSlide].secondaryBtnText}
+              </Button>
+            )}
           </div>
+        </div>
+
+        {/* Carousel Dot Indicators */}
+        <div style={{
+          position: 'absolute', bottom: '2rem', left: 0, width: '100%',
+          display: 'flex', justifyContent: 'center', gap: '0.75rem', zIndex: 10
+        }}>
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              style={{
+                width: '12px', height: '12px', borderRadius: '50%', border: 'none',
+                cursor: 'pointer', transition: 'all 0.3s ease',
+                backgroundColor: currentSlide === index ? 'var(--color-gold)' : 'rgba(255,255,255,0.5)',
+                transform: currentSlide === index ? 'scale(1.2)' : 'scale(1)'
+              }}
+              aria-label={`Go to slide ${index + 1}`}
+            ></button>
+          ))}
         </div>
       </section>
 
@@ -196,7 +275,6 @@ export default function Home() {
 
       {/* Why Choose Us */}
       <section className="bg-charcoal section-padding" style={{ position: 'relative', overflow: 'hidden' }}>
-        {/* Subtle gold line pattern background overlay could go here */}
         <div className="container" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--color-gold)' }}>Why Choose Ritam Global?</h2>
           <p style={{ fontSize: '1.15rem', color: 'rgba(255,255,255,0.8)', maxWidth: '700px', margin: '0 auto 4rem', lineHeight: 1.8 }}>
@@ -218,7 +296,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
     </>
   );
 }
