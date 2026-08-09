@@ -32,7 +32,16 @@
 
 ---
 
-## 3. Next Session Action Plan (Optional Polish)
-- [ ] Add `export const metadata` to all pages for advanced SEO.
-- [ ] Add entrance animations to the catalog and about pages to match the homepage.
-- [ ] Connect a real domain and deploy to Vercel/Netlify for production.
+## 3. Completed Final Polish
+- [x] Added `export const metadata` to all pages for advanced SEO.
+- [x] Added entrance animations to the catalog and about pages to match the homepage.
+- [x] Prepared codebase for Vercel/Netlify deployment.
+
+---
+
+## 4. Future Roadmap (E-commerce Expansion)
+When we return to this project, the goal is to transform the static B2B inquiry site into a fully functional B2C E-commerce platform.
+- [ ] **Admin Dashboard:** Build a secure admin panel (e.g., using Supabase or Firebase) to manage products, prices, and stock dynamically without editing code.
+- [ ] **Shopping Cart & Checkout:** Implement a global state shopping cart for users to add multiple items.
+- [ ] **Payment Gateway Integration:** Connect Stripe or Razorpay to securely accept credit cards and UPI payments.
+- [ ] **Shipping Integration:** Add shipping address forms, logic for calculating shipping costs based on weight/distance, and order tracking.
