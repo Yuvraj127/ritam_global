@@ -4,15 +4,15 @@ import React, { useState } from "react";
 import Button from "@/components/ui/Button";
 
 const cookwareItems = [
-  { id: 'v-small', name: 'Vagariya (Small)', size: 14, price: 50, type: 'Tempering Pan', desc: 'Small tempering / tadka pan' },
-  { id: 'v-large', name: 'Vagariya (Large)', size: 16, price: 60, type: 'Tempering Pan', desc: 'Large tempering / tadka pan' },
-  { id: 'vad-s', name: 'Vadka (Small)', size: 20, price: 100, type: 'Deep Bowl', desc: 'Deep traditional bowl' },
-  { id: 'vad-m', name: 'Vadka (Medium)', size: 26, price: 150, type: 'Deep Bowl', desc: 'Medium deep traditional bowl' },
-  { id: 'vad-l', name: 'Vadka (Large)', size: 30, price: 200, type: 'Deep Bowl', desc: 'Large deep traditional bowl' },
-  { id: 'vad-xl', name: 'Vadka (Larger)', size: 36, price: 250, type: 'Deep Bowl', desc: 'Extra-large deep traditional bowl' },
-  { id: 'mal', name: 'Malpuda', size: 26, price: 120, type: 'Shallow Bowl', desc: 'Wide shallow frying/serving bowl' },
-  { id: 'lid-s', name: 'Bowl with Lid (Small)', size: 17, price: 200, type: 'Covered Bowl', desc: 'Covered bowl with red knob lid' },
-  { id: 'lid-l', name: 'Bowl with Lid (Large)', size: 26, price: 250, type: 'Covered Bowl', desc: 'Covered bowl with red knob lid' },
+  { id: 'v-small', name: 'Vagariya (Small)', size: 14, price: 50, type: 'Tempering Pan', desc: 'Small tempering / tadka pan', img: '/bowl-tempering.jpg' },
+  { id: 'v-large', name: 'Vagariya (Large)', size: 16, price: 60, type: 'Tempering Pan', desc: 'Large tempering / tadka pan', img: '/bowl-tempering.jpg' },
+  { id: 'vad-s', name: 'Vadka (Small)', size: 20, price: 100, type: 'Deep Bowl', desc: 'Deep traditional bowl', img: '/bowl-deep.jpg' },
+  { id: 'vad-m', name: 'Vadka (Medium)', size: 26, price: 150, type: 'Deep Bowl', desc: 'Medium deep traditional bowl', img: '/bowl-deep.jpg' },
+  { id: 'vad-l', name: 'Vadka (Large)', size: 30, price: 200, type: 'Deep Bowl', desc: 'Large deep traditional bowl', img: '/bowl-deep.jpg' },
+  { id: 'vad-xl', name: 'Vadka (Larger)', size: 36, price: 250, type: 'Deep Bowl', desc: 'Extra-large deep traditional bowl', img: '/bowl-deep.jpg' },
+  { id: 'mal', name: 'Malpuda', size: 26, price: 120, type: 'Shallow Bowl', desc: 'Wide shallow frying/serving bowl', img: '/bowl-deep.jpg' },
+  { id: 'lid-s', name: 'Bowl with Lid (Small)', size: 17, price: 200, type: 'Covered Bowl', desc: 'Covered bowl with red knob lid', img: '/bowl-lid.jpg' },
+  { id: 'lid-l', name: 'Bowl with Lid (Large)', size: 26, price: 250, type: 'Covered Bowl', desc: 'Covered bowl with red knob lid', img: '/bowl-lid.jpg' },
 ];
 
 export default function CookwareCatalog() {
@@ -81,7 +81,7 @@ export default function CookwareCatalog() {
               padding: '2rem',
               border: '2px dashed rgba(207, 168, 95, 0.3)'
             }}>
-              {/* Abstract size indicator circle */}
+              {/* Abstract size indicator circle with Product Image */}
               <div style={{
                 width: `${Math.min(itemSizeToPixels(activeItem.size), 250)}px`,
                 height: `${Math.min(itemSizeToPixels(activeItem.size), 250)}px`,
@@ -91,9 +91,15 @@ export default function CookwareCatalog() {
                 transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                overflow: 'hidden',
+                boxShadow: '0 10px 20px rgba(0,0,0,0.1)'
               }}>
-                <span style={{ color: 'var(--color-gold-dark)', opacity: 0.5, fontSize: '1.25rem' }}>{activeItem.size} cm</span>
+                <img 
+                  src={activeItem.img} 
+                  alt={activeItem.name} 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
               </div>
               
               <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', backgroundColor: 'rgba(255,255,255,0.9)', padding: '1.5rem', borderRadius: 'var(--radius-md)', backdropFilter: 'blur(5px)' }}>
