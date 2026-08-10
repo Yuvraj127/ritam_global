@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Button from "@/components/ui/Button";
+import TiltCard from "@/components/ui/TiltCard";
 
 // Master Dhoop Catalog (7 Items)
 const dhoopProducts = [
@@ -113,7 +114,7 @@ export default function DhoopCatalog() {
             const currentFormat = formats[product.id] || 'stick';
             
             return (
-              <div key={product.id} className="glass animate-fade-up category-card" style={{ animationDelay: `${(index % 4) * 0.15}s`, borderRadius: 'var(--radius-lg)', overflow: 'hidden', display: 'flex', flexDirection: 'column', border: '1px solid rgba(207, 168, 95, 0.15)' }}>
+              <TiltCard key={product.id} className="glass animate-fade-up category-card" style={{ animationDelay: `${(index % 4) * 0.15}s`, borderRadius: 'var(--radius-lg)', overflow: 'hidden', display: 'flex', flexDirection: 'column', border: '1px solid rgba(207, 168, 95, 0.15)' }}>
                 <img 
                   src={currentFormat === 'stick' ? '/dhoop-stick.jpg' : '/dhoop-cone.jpg'} 
                   alt={`${product.name} ${currentFormat}`} 
@@ -186,7 +187,7 @@ export default function DhoopCatalog() {
                     Quick View
                   </button>
                 </div>
-              </div>
+              </TiltCard>
             );
           })}
           

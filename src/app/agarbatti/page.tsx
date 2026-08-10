@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Button from "@/components/ui/Button";
+import TiltCard from "@/components/ui/TiltCard";
 
 // Master Catalog Data (41 Items)
 const agarbattiProducts = [
@@ -165,7 +166,7 @@ export default function AgarbattiCatalog() {
           gap: '2rem'
         }}>
           {filteredProducts.map((product, index) => (
-            <div key={product.id} className="glass animate-fade-up" style={{ animationDelay: `${(index % 6) * 0.15}s`, borderRadius: 'var(--radius-lg)', overflow: 'hidden', display: 'flex', flexDirection: 'column', border: '1px solid rgba(207, 168, 95, 0.15)' }}>
+            <TiltCard key={product.id} className="glass animate-fade-up" style={{ animationDelay: `${(index % 6) * 0.15}s`, borderRadius: 'var(--radius-lg)', overflow: 'hidden', display: 'flex', flexDirection: 'column', border: '1px solid rgba(207, 168, 95, 0.15)' }}>
               <img src={product.img} alt={product.name} style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
               <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
@@ -199,10 +200,10 @@ export default function AgarbattiCatalog() {
                   }}
                 >
                   Quick View
-                </button>
-              </div>
-            </div>
-          ))}
+                  </button>
+                </div>
+              </TiltCard>
+            ))}
           {filteredProducts.length === 0 && (
             <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '4rem', color: 'var(--color-slate)' }}>
               No fragrances found matching your search.

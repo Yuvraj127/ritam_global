@@ -29,6 +29,8 @@ export const metadata: Metadata = {
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import SmokeCursor from "@/components/ui/SmokeCursor";
+import FloatingMotif from "@/components/ui/FloatingMotif";
 
 export default function RootLayout({
   children,
@@ -38,6 +40,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} ${cormorantGaramond.variable}`}>
       <body>
+        <FloatingMotif />
+        <SmokeCursor />
         <Navbar />
         <main>{children}</main>
         <Footer />

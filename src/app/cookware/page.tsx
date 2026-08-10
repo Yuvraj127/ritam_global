@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Button from "@/components/ui/Button";
+import TiltCard from "@/components/ui/TiltCard";
 
 // Master Cookware Catalog (9 Items)
 const cookwareItems = [
@@ -130,7 +131,7 @@ export default function CookwareCatalog() {
           gap: '2rem'
         }}>
           {filteredProducts.map((product, index) => (
-            <div key={product.id} className="glass animate-fade-up" style={{
+            <TiltCard key={product.id} className="glass animate-fade-up" style={{
               animationDelay: `${(index % 5) * 0.15}s`,
               borderRadius: 'var(--radius-lg)',
               overflow: 'hidden',
@@ -174,10 +175,10 @@ export default function CookwareCatalog() {
                   }}
                 >
                   Quick View
-                </button>
-              </div>
-            </div>
-          ))}
+                  </button>
+                </div>
+              </TiltCard>
+            ))}
           {filteredProducts.length === 0 && (
             <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '4rem', color: 'var(--color-slate)' }}>
               No cookware items found matching your search.

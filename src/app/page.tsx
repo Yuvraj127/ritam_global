@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
+import TiltCard from "@/components/ui/TiltCard";
 
 // Hero Slides Data
 const heroSlides = [
@@ -247,7 +248,7 @@ export default function Home() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2.5rem' }}>
             {featuredProducts.map((product, index) => (
-              <div key={product.id} className="glass animate-fade-up" style={{ animationDelay: `${0.2 + (index * 0.2)}s`, borderRadius: 'var(--radius-lg)', overflow: 'hidden', display: 'flex', flexDirection: 'column', border: '1px solid rgba(207, 168, 95, 0.15)' }}>
+              <TiltCard key={product.id} className="glass animate-fade-up" style={{ animationDelay: `${0.2 + (index * 0.2)}s`, borderRadius: 'var(--radius-lg)', overflow: 'hidden', display: 'flex', flexDirection: 'column', border: '1px solid rgba(207, 168, 95, 0.15)' }}>
                 <img src={product.img} alt={product.name} style={{ width: '100%', height: '250px', objectFit: 'cover' }} />
                 <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1, backgroundColor: 'var(--color-ivory)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
@@ -267,7 +268,7 @@ export default function Home() {
                     Quick View
                   </button>
                 </div>
-              </div>
+              </TiltCard>
             ))}
           </div>
         </div>

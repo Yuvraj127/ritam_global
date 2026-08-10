@@ -141,6 +141,11 @@ main {
   100% { transform: translateY(0) translateX(0); opacity: 0.2; }
 }
 
+@keyframes slowRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
 .dust-particle {
   position: absolute;
   border-radius: 50%;
@@ -148,6 +153,24 @@ main {
   filter: blur(4px);
   animation: drift 8s infinite ease-in-out;
   pointer-events: none;
+}
+
+@keyframes smokeDissipate {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  100% { transform: translate(-50%, -100px) scale(4); opacity: 0; filter: blur(8px); }
+}
+
+.smoke-particle {
+  animation: smokeDissipate 1s forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pageEnter {
+  0% { opacity: 0; transform: translateY(15px) scale(0.99); filter: blur(4px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+.page-transition {
+  animation: pageEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Luxury UI Animations */
